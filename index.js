@@ -50,7 +50,24 @@ app.get("/resultstv",function(req,res){
         }
         });
         });
-            
+
+ app.get("/topratedtv",function(req,res){
+    request("http://api.themoviedb.org/3/tv/top_rated?api_key=4d3d897644294d2ef0d6db5feff11716",function(error,response,body){
+        if(!error && response.statusCode==200){
+            var data=JSON.parse(body);
+            res.render("toprated", {data});   
+    }
+    });
+    });
+    
+app.get("/topratedtv",function(req,res){
+        request("http://api.themoviedb.org/3/tv/top_rated?api_key=4d3d897644294d2ef0d6db5feff11716",function(error,response,body){
+            if(!error && response.statusCode==200){
+                var data=JSON.parse(body);
+                res.render("toprated", {data});   
+        }
+        });
+        });   
 
 
 
