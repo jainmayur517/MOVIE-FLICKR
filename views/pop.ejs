@@ -1,0 +1,16 @@
+<html>
+<head>
+  <title> movie_App</title>
+  <link rel="stylesheet" type="text/css" href="bootstrap.css">
+</head>
+<body> 
+
+        <h1>results page!<h1>
+
+                <% data["results"].forEach(function(movie){ %> 
+                  <li><%= movie["title"]%>-<%=movie["release_date"]%>-</li>
+                    <img src=<%="https:image.tmdb.org/t/p/w300/"+movie["poster_path"]%>>
+                <% }) %>
+                </body>
+                </html>
+                

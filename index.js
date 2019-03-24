@@ -1,0 +1,59 @@
+var exp= require('express');
+var app =exp();
+var serve=require('express-static');
+//app.use(serve(__dirname + '/public'));
+var request=require('request');
+app.set("view engine","ejs");
+app.get("/",function(req,res){
+  app.use(serve(__dirname + '/public'));
+res.render("search");
+})
+app.get("/results",function(req,res){
+var name=req.query.bm
+request("https://api.themoviedb.org/3/search/movie?api_key=4d3d897644294d2ef0d6db5feff11716&query=" + name,function(error,response,body){
+
+if(!error && response.statusCode==200){
+var result=JSON.parse(body);
+res.render("app", {data: result});
+}
+});
+});
+app.get("/popularity",function(req,res){
+request("https://api.themoviedb.org/3/discover/movie?api_key=4d3d897644294d2ef0d6db5feff11716&sort_by=popularity.desc",function(error,response,body){
+    if(!error && response.statusCode==200){
+        var data=JSON.parse(body);
+        res.render("pop", {data});   
+}
+});
+});
+
+
+app.get("/toprated",function(req,res){
+    request("https://api.themoviedb.org/3/discover/movie?api_key=4d3d897644294d2ef0d6db5feff11716&include_video=false&without_genres=99,10755&vote_count.gte=75&sort_by=vote_average.desc&page=2",function(error,response,body){
+        if(!error && response.statusCode==200){
+            var data=JSON.parse(body);
+            res.render("toprated", {data});   
+    }
+    });
+    });
+
+
+
+
+app.get("/resultstv",function(req,res){
+        var name=req.query.gm
+        request("https://api.themoviedb.org/3/search/tv?api_key=4d3d897644294d2ef0d6db5feff11716&query=" + name,function(error,response,body){
+        
+        if(!error && response.statusCode==200){
+        var result=JSON.parse(body);
+        res.render("searchtv", {data: result});
+        }
+        });
+        });
+            
+
+
+
+app.listen(3000,function(){
+console.log("server started!");
+})
