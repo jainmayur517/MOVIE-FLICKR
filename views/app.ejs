@@ -4,12 +4,27 @@
   <link rel="stylesheet" type="text/css" href="bootstrap.css">
 </head>
 <body> 
-  
-<h1>results page!<h1>
-
+ 
+ <header class="jumbotron">
+<h1 class="text-center font-weight-bolder">results page!</h1>
+  </header> 
+  <div class="container">
+  <div class="row" style="display:flex; flex-wrap:wrap;">
 <% data["results"].forEach(function(movie){ %> 
-  <li><%= movie["title"]%>-<%=movie["release_date"]%>-</li>
-    <img src=<%="https:image.tmdb.org/t/p/w300/"+movie["poster_path"]%>>
-<% }) %>
+  <div class="col-md-4 col-sm-6">
+    <div class="thumbnail">
+        <img src=<%="https:image.tmdb.org/t/p/w300/"+movie["poster_path"]%>>
+        <div class="caption">
+            <a href="/results/<%=movie["id"]%>"><h3> <%=movie["id"]%></h3></a> 
+
+        </div>
+    </div>
+  
+  </div>
+  <% }) %>
+</div>
+  </div>
+
+
 </body>
 </html>
