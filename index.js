@@ -4,6 +4,8 @@ var serve=require('express-static');
 //app.use(serve(__dirname + '/public'));
 var request=require('request');
 app.set("view engine","ejs");
+
+
 app.get("/",function(req,res){
   app.use(serve(__dirname + '/public'));
 res.render("search");
@@ -63,10 +65,23 @@ app.get("/resultstv",function(req,res){
         
         if(!error && response.statusCode==200){
         var result=JSON.parse(body);
-        res.render("searchtv", {data: result});
+        res.render("searchtv", {data:result});
         }
         });
         });
+
+
+
+        app.get("/resultstv/:id",function(req,res){
+            var name=req.params.id;
+                     request("http://api.themoviedb.org/3/tv/"+name+"/credits?api_key=4d3d897644294d2ef0d6db5feff11716",function(error,response,body){
+                     
+                             var data=JSON.parse(body);
+                             res.render("casttv", {data:data});   
+                     
+                     });
+                     });          
+         
 
  app.get("/topratedtv",function(req,res){
     request("http://api.themoviedb.org/3/tv/top_rated?api_key=4d3d897644294d2ef0d6db5feff11716",function(error,response,body){
@@ -87,15 +102,6 @@ app.get("/populartv",function(req,res){
         });
         });   
 
-app.get("/moviecast",function(req,res){
-   var name=req.query.movieid;
-            request("http://api.themoviedb.org/3/movie/"+name+"/casts?api_key=4d3d897644294d2ef0d6db5feff11716",function(error,response,body){
-                if(!error && response.statusCode==200){
-                    var data=JSON.parse(body);
-                    res.render("cast", {data:data});   
-            }
-            });
-            });          
 
 
        

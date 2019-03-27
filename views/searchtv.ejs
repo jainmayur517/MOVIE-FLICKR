@@ -5,11 +5,32 @@
 </head>
 <body> 
   
-<h1>results page!<h1>
+    <header class="jumbotron">
+        <h1 class="text-center font-weight-bolder">results page!</h1>
+          </header> 
+          <div class="container">
+          <div class="row" style="display:flex; flex-wrap:wrap;">
 
 <% data["results"].forEach(function(movie){ %> 
-  <li><%= movie["original_name"]%>-<%=movie["release_date"]%>-</li>
+  <div class="col-md-4 col-sm-6">
+      <div class="thumbnail">
+          <a href="/resultstv/<%=movie["id"]%>">
+
     <img src=<%="https:image.tmdb.org/t/p/w300/"+movie["poster_path"]%>>
+    <div class="caption">
+    <h3><%=movie["name"]%></h3></a>
+
+  </div>
+</div>
+
+</div>
+
+
 <% }) %>
+
+</div>
+</div>
 </body>
 </html>
+
+
