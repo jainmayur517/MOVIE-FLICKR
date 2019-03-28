@@ -7,15 +7,28 @@
     <header class="jumbotron">
         <h1 class="text-center font-weight-bolder">results page!</h1>
           </header> 
+
+
+
+
+         <h2 class ="text-center"><a href="/trailer/<%=data["id"]%>">TRAILER</a></h2>
           <div class="container">
           <div class="row" style="display:flex; flex-wrap:wrap;">
+            
+
+              
+               
+
+
+<%=data["overview"]%>
 
                 <% data["cast"].forEach(function(movie){ %> 
                   <div class="col-md-4 col-sm-6">
                       <div class="thumbnail">
+                    
                           <img src=<%="https:image.tmdb.org/t/p/w300/"+movie["profile_path"]%>>
                           <div class="caption">
-                  <li><%= movie["name"]%></li>
+                  <%= movie["name"]%>
                   </div>
                 </div>
               </div>

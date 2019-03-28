@@ -27,7 +27,8 @@ app.get("/results/:id",function(req,res){
     //console.log(req.params.id);
     var name=req.params.id;
     request("http://api.themoviedb.org/3/movie/"+name+"/casts?api_key=4d3d897644294d2ef0d6db5feff11716",function(error,response,body){
-        var data = JSON.parse(body)
+        var data = JSON.parse(body);
+        //console.log(data)
         res.render("cast", {data:data})
         /*if(!error && response.statusCode==200){
             var data=JSON.parse(body);
@@ -98,10 +99,21 @@ app.get("/populartv",function(req,res){
                 var data=JSON.parse(body);
                 res.render("populartv", {data});   
         }
-        console.log("hello")
+        //console.log("hello")
         });
         });   
 
+        app.get("/trailer/:id",function(req,res){
+            var name=req.params.id;
+            request("http://api.themoviedb.org/3/movie/" + name + "/videos?api_key=4d3d897644294d2ef0d6db5feff11716",function(error,response,body){
+                
+                    var data=JSON.parse(body);
+                    //console.log(data);
+                    res.render("trailer", {data:data});   
+        
+            //console.log("hello")
+            });
+            });   
 
 
        
