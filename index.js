@@ -1,3 +1,6 @@
+
+
+
 var exp= require('express');
 var app =exp();
 var serve=require('express-static');
@@ -75,8 +78,9 @@ app.get("/resultstv",function(req,res){
 
         app.get("/resultstv/:id",function(req,res){
             var name=req.params.id;
+            
                      request("http://api.themoviedb.org/3/tv/"+name+"/credits?api_key=4d3d897644294d2ef0d6db5feff11716",function(error,response,body){
-                     
+                        var gh=req.params.backdrop_path;         
                              var data=JSON.parse(body);
                              res.render("casttv", {data:data});   
                      
@@ -114,6 +118,10 @@ app.get("/populartv",function(req,res){
             //console.log("hello")
             });
             });   
+
+
+            //console.log($.getJSON("https://api.themoviedb.org/3/discover/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb"));
+
 
 
        

@@ -1,31 +1,50 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <title>searcher</title>
-        <link rel="stylesheet" type="text/css" href="bootstrap.css">
-    
+        <title>YelpCamp</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="ub.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
     </head>
-<body background="abstract-art-artistic-1020315.jpg">
+    <body>
     
-    <header class="jumbotron">
-        <h1 class="text-center font-weight-bolder">Movie`FlicKR</h1>
-        <button><a href="/popularity">POPULAR</a></button>
-        <a href="/toprated">TOP-RATED</a>
-        <a href="/topratedtv">TOP-RATED tv</a>
-        <a href="/populartv">TOP-RATED tv</a>
+    
+    <div id="landing-header">
+     <h1>MOvie`fliKR!</h1>
+    
+      <a href="/popularity" class="btn btn-lg btn-success">POPULAR</a>
+      <a href="/toprated" class="btn btn-lg btn-success">TOP-RATED</a>
+      <a href="/topratedtv" class="btn btn-lg btn-success">TOP-RATED tv</a>
+      <a href="/populartv" class="btn btn-lg btn-success">TOP-RATED tv</a>
 
-    </header> 
-    <div class="container text-center" >   
-    <form action="/results" method="GET">
-        <input type="text" placeholder="SEARCH MOVIE" name="bm">
-        <input type="submit">
-    </form>
+  
+  <div class="container text-center" >   
+  <form action="/results" method="GET">
+      <input type="text" placeholder="SEARCH MOVIE" name="bm">
+      <input type="submit">
+  </form>
+  </div>
+  <div class="container text-center" >   
+          <form action="/resultstv" method="GET">
+              <input type="text" placeholder="SEARCH TV-SHOWS" name="gm">
+              <input type="submit">
+          </form>
+          </div>
+	
     </div>
-    <div class="container text-center" >   
-            <form action="/resultstv" method="GET">
-                <input type="text" placeholder="SEARCH TV-SHOWS" name="gm">
-                <input type="submit">
-            </form>
-            </div>
+    
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+
+      
+            
+    
     
 </body>
 </html>

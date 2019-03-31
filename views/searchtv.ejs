@@ -4,6 +4,7 @@
   <link rel="stylesheet" type="text/css" href="bootstrap.css">
 </head>
 <body> 
+    
   
     <header class="jumbotron">
         <h1 class="text-center font-weight-bolder">results page!</h1>
@@ -14,6 +15,7 @@
 <% data["results"].forEach(function(movie){ %> 
   <div class="col-md-4 col-sm-6">
       <div class="thumbnail">
+        <%console.log("/resultstv/"+movie["id"]+movie["backdrop_path"])%>
           <a href="/resultstv/<%=movie["id"]%>">
 
     <img src=<%="https:image.tmdb.org/t/p/w300/"+movie["poster_path"]%>>
