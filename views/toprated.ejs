@@ -1,18 +1,40 @@
+
+                              
+
 <html>
 <head>
   <title> movie_App</title>
-  <link rel="stylesheet" type="text/css" href="bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/bootstrap.css">
 </head>
 <body> 
-    <header class="jumbotron">
-        <h1 class="text-center font-weight-bolder">results page!</h1>
-          </header> 
-        
+ 
+ <header class="jumbotron">
+<h1 class="text-center font-weight-bolder">results page!</h1>
+  </header> 
+  <div class="container">
+  <div class="row" style="display:flex; flex-wrap:wrap;">
+<% data["results"].forEach(function(movie){ %> 
+  <div class="col-md-4 col-sm-6">
+    <div class="thumbnail">
+      <a href="/results/<%=movie["id"]%>">
+        <img src=<%="https:image.tmdb.org/t/p/w300/"+movie["poster_path"]%>>
+        <div class="caption">
+            <h3> <%=movie["title"]%>-<%=movie["release_date"]%></h3></a> 
 
-                <% data["results"].forEach(function(movie){ %> 
-                  <li><%= movie["title"]%>-<%=movie["release_date"]%>-</li>
-                    <img src=<%="https:image.tmdb.org/t/p/w300/"+movie["poster_path"]%>>
-                <% }) %>
-                </body>
-                </html>
+        </div>
+    </div>
+  
+  </div>
+  <% }) %>
+</div>
+<h3 class="text-center">next page</h3>
+<button><a href="/toprated/1">1</a></button>
+<button><a href="/toprated/2">2</a></button>
+<button><a href="/toprated/3">3</a></button>
+<button><a href="/toprated/4">4</a></button>
+  </div>
+
+
+</body>
+</html>
                 

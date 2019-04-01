@@ -41,8 +41,9 @@ app.get("/results/:id",function(req,res){
     });
     });
 
-app.get("/popularity",function(req,res){
-request("https://api.themoviedb.org/3/discover/movie?api_key=4d3d897644294d2ef0d6db5feff11716&sort_by=popularity.desc",function(error,response,body){
+app.get("/popularity/:id",function(req,res){
+    var name=req.params.id;
+request("https://api.themoviedb.org/3/discover/movie?api_key=4d3d897644294d2ef0d6db5feff11716&sort_by=popularity.desc&page="+name,function(error,response,body){
     if(!error && response.statusCode==200){
         var data=JSON.parse(body);
         res.render("pop", {data});   
@@ -51,15 +52,32 @@ request("https://api.themoviedb.org/3/discover/movie?api_key=4d3d897644294d2ef0d
 });
 
 
-app.get("/toprated",function(req,res){
-    request("https://api.themoviedb.org/3/discover/movie?api_key=4d3d897644294d2ef0d6db5feff11716&include_video=false&without_genres=99,10755&vote_count.gte=75&sort_by=vote_average.desc&page=2",function(error,response,body){
-        if(!error && response.statusCode==200){
-            var data=JSON.parse(body);
-            res.render("toprated", {data});   
-    }
-    });
-    });
 
+
+
+
+    app.get("/toprated/:id",function(req,res){
+        var name=req.params.id;
+        request("https://api.themoviedb.org/3/discover/movie?api_key=4d3d897644294d2ef0d6db5feff11716&include_video=false&without_genres=99,10755&vote_count.gte=75&sort_by=vote_average.desc&page="+name,function(error,response,body){
+            if(!error && response.statusCode==200){
+                var data=JSON.parse(body);
+                res.render("toprated", {data:data});   
+        }
+        });
+        });
+
+        app.get("/upcoming",function(req,res){
+    
+            var name=req.query.bm
+            request("http://api.themoviedb.org/3/movie/upcoming?api_key=4d3d897644294d2ef0d6db5feff11716&region=us",function(error,response,body){
+            
+           
+            var result=JSON.parse(body);
+            //console.log(result)
+            res.render("upcoming", {data:result});
+            
+            });
+            });
 
 
 

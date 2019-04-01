@@ -5,25 +5,38 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="ub.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+        <audio src="/swan-song.mp3" type="audio/ogg" controls>	
+          <p>Fallback content goes here.</p>
+          </audio>
     </head>
     <body>
-    
+      
+   <div class="container">
     
     <div id="landing-header">
      <h1>MOvie`fliKR!</h1>
     
-      <a href="/popularity" class="btn btn-lg btn-success">POPULAR</a>
-      <a href="/toprated" class="btn btn-lg btn-success">TOP-RATED</a>
+      <a href="/popularity/1" class="btn btn-lg btn-success">POPULAR</a>
+      <a href="/toprated/1" class="btn btn-lg btn-success">TOP-RATED</a>
+      <a href="/upcoming" class="btn btn-lg btn-success">UPCOMING_MOVIES</a>
       <a href="/topratedtv" class="btn btn-lg btn-success">TOP-RATED tv</a>
-      <a href="/populartv" class="btn btn-lg btn-success">TOP-RATED tv</a>
+      <a href="/populartv" class="btn btn-lg btn-success">POPULAR-tv tv</a>
+      
 
-  
+  <Br>
+    
+    <BR>
+      <BR>
+    <BR>
+
+    <br>
   <div class="container text-center" >   
   <form action="/results" method="GET">
       <input type="text" placeholder="SEARCH MOVIE" name="bm">
       <input type="submit">
   </form>
   </div>
+<BR>
   <div class="container text-center" >   
           <form action="/resultstv" method="GET">
               <input type="text" placeholder="SEARCH TV-SHOWS" name="gm">
@@ -32,7 +45,8 @@
           </div>
 	
     </div>
-    
+  
+  
     <ul class="slideshow">
       <li></li>
       <li></li>
@@ -40,6 +54,12 @@
       <li></li>
       <li></li>
     </ul>
+  </div>
+  
+    <footer id="footer">
+        Copyright © MOvie`fliKR-2019, All Rights Reserved
+     </footer>
+     </div>
 
 
       
