@@ -1,23 +1,84 @@
 <html>
 <head>
   <title> movie_App</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
- 
+ <link rel="stylesheet" type="text/css" src="/castst.css" />
   
 
 </head>
+
 <body> 
    
   
     <header class="jumbotron">
-        <h1 class="text-center font-weight-bolder">results page!</h1>
+        <h1 class="text-center font-weight-bolder"><%=data["original_title"]%></h1>
           </header> 
 
 
+        <div id="custom-bg">
+          <div class="padding">
+              <div class="container">
+                <div class="row">
+                   
+                  <div class="col-lg-6">
+                  <img src=<%="https:image.tmdb.org/t/p/w300/"+data["poster_path"]%> align="right">
+                </div>
+                <div class="col-lg-6">
+                  <h2><%=data["original_title"]%></h2>
+                  <br>
+                      <h4><a href="/trailer/<%=data["id"]%>">PLAY TRAILER</a></h4>
+                      
+                  <br>
+                  <h3>overview</h3>
+                  <p>
+                      <%=data["overview"]%>
+                  </p>
+                  
+                      <div class="container">
+                          <div class="row">
+                    <div class="col-lg-6">
+                   <b><%=data["credits"].crew[0].name%></b>
+                    <br>
+                    <%=data["credits"].crew[0].job%>
+                    </div>
+                    <div class="col-lg-6">
+                      <b><%=data["credits"].crew[1].name%></b>
+                        <br>
+                        <%=data["credits"].crew[1].job%>
+                        </div>
+                      </div>
+                      </div>
+                      <br>
+
+                      <div class="container">
+                          <div class="row">
+                    <div class="col-lg-6">
+                   <b><%=data["credits"].crew[2].name%></b>
+                    <br>
+                    <%=data["credits"].crew[2].job%>
+                    </div>
+                    <div class="col-lg-6">
+                      <b><%=data["credits"].crew[3].name%></b>
+                        <br>
+                        <%=data["credits"].crew[3].job%>
+                        </div>
+                      </div>
+                      </div>
+                </div>
+                
+              </div>
+          
+            </div>
+            </div>
+          </div>
+            
+
+<BR>
+  <BR>
 
 
-         <h2 class ="text-center"><a href="/trailer/<%=data["id"]%>">TRAILER</a></h2>
+         
           <div class="container">
           <div class="row" style="display:flex; flex-wrap:wrap;">
             
@@ -26,20 +87,23 @@
                
 
 
-<%=data["overview"]%>
 
-                <% data["cast"].forEach(function(movie){ %> 
-                  <div class="col-md-4 col-sm-6">
-                      <div class="thumbnail">
-                    
-                          <img src=<%="https:image.tmdb.org/t/p/w300/"+movie["profile_path"]%>>
-                          <div class="caption">
-                  <%= movie["name"]%>
-                  </div>
-                </div>
-              </div>
-                    
-                <% }) %>
+
+<% data["credits"].cast.forEach(function(movie){ %> 
+  <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="thumbnail">
+    
+        <img src=<%="https:image.tmdb.org/t/p/w200/"+movie["profile_path"]%>>
+      
+        <div class="caption">
+            <h3> <%=movie["name"]%></h3>
+
+        </div>
+    </div>
+  
+  </div>
+  <% }) %>
+               
               </div>
             </div>
            

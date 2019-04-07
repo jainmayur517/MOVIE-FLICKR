@@ -29,7 +29,7 @@ res.render("app", {data: result});
 app.get("/results/:id",function(req,res){
     //console.log(req.params.id);
     var name=req.params.id;
-    request("http://api.themoviedb.org/3/movie/"+name+"/casts?api_key=4d3d897644294d2ef0d6db5feff11716",function(error,response,body){
+    request("https://api.themoviedb.org/3/movie/"+name+"?api_key=4d3d897644294d2ef0d6db5feff11716&query&append_to_response=credits,translations,videos,recommendations",function(error,response,body){
         var data = JSON.parse(body);
         //console.log(data)
         res.render("cast", {data:data})
