@@ -2,32 +2,58 @@
 <head>
   <title> movie_App</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
- <link rel="stylesheet" type="text/css" src="/castst.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
   
 
 </head>
 
 <body> 
-   
+    <style type="text/css">
+      .bg{
+        background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url(<%="https:image.tmdb.org/t/p/original/"+data["backdrop_path"]%>);
+        background-color: #cccccc; /* Used if the image is unavailablle */
+        background-size: 100%;
+        
+        
+      }
+      .gh{
+        background-color: black;
+        color: white
+      }
+      a{
+        color: inherit;
+      }
+      </style>
+
+<header class="gh">
+    <br>
+
+    <h1 class="text-center font-weight-bolder"><a href="/">MOvie`fliKR</a></h1>
+    <br>
+      </header>
+      <br>
   
-    <header class="jumbotron">
-        <h1 class="text-center font-weight-bolder"><%=data["original_title"]%></h1>
-          </header> 
+   
+          
+        <div class="bg">
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
 
-
-        <div id="custom-bg">
           <div class="padding">
               <div class="container">
                 <div class="row">
                    
-                  <div class="col-lg-6">
+                  <div class="col-lg-3 col-md-4 col-sm-6">
                   <img src=<%="https:image.tmdb.org/t/p/w300/"+data["poster_path"]%> align="right">
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-8 col-md-4 col-sm-6">
                   <h2><%=data["original_title"]%></h2>
                   <br>
-                      <h4><a href="/trailer/<%=data["id"]%>">PLAY TRAILER</a></h4>
+                      <h4><a href="/trailer/<%=data["id"]%>" class="fa fa-youtube">Play Trailer</a></h4>
                       
                   <br>
                   <h3>overview</h3>
@@ -50,6 +76,7 @@
                       </div>
                       </div>
                       <br>
+                     
 
                       <div class="container">
                           <div class="row">
@@ -58,26 +85,30 @@
                     <br>
                     <%=data["credits"].crew[2].job%>
                     </div>
-                    <div class="col-lg-6">
-                      <b><%=data["credits"].crew[3].name%></b>
-                        <br>
-                        <%=data["credits"].crew[3].job%>
-                        </div>
+                   
                       </div>
                       </div>
                 </div>
                 
               </div>
-          
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
             </div>
             </div>
           </div>
             
 
 <BR>
-  <BR>
-
-
+  
+   
+<div class="gh">
+    <h2 align="center">STAR CAST</h2>
+    <br>
          
           <div class="container">
           <div class="row" style="display:flex; flex-wrap:wrap;">
@@ -106,6 +137,7 @@
                
               </div>
             </div>
+          </div>
            
                 </body>
                 </html>
