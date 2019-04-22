@@ -11,9 +11,10 @@
 <body> 
     <style type="text/css">
       .bg{
-        background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url(<%="https:image.tmdb.org/t/p/original/"+data["backdrop_path"]%>);
+        background-image: radial-gradient(ellipse at 20% 50%, rgba(19.61%, 10.84%, 50.84%, 0.5) 0%, rgba(19.61%, 7.84%, 50.84%, 0.88) 100%),url(<%="https:image.tmdb.org/t/p/original/"+data["backdrop_path"]%>);
         background-color: #cccccc; /* Used if the image is unavailablle */
         background-size: 100%;
+        color: white;
         
         
       }
@@ -24,6 +25,62 @@
       a{
         color: inherit;
       }
+
+      .flex-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+      
+}
+
+.single-chart {
+  width: 33%;
+  justify-content: space-around ;
+}
+
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  max-width: 60%;
+  max-height: 50px;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.circular-chart.orange .circle {
+  stroke: #ff9f00;
+}
+
+.circular-chart.green .circle {
+  stroke: #4CC790;
+}
+
+.circular-chart.blue .circle {
+  stroke: #3c9ee5;
+}
+
+.percentage {
+  fill: #666;
+  font-family: sans-serif;
+  font-size: 0.5em;
+  text-anchor: middle;
+}
       </style>
 
 <header class="gh">
@@ -34,7 +91,7 @@
       </header>
       <br>
   
-   
+     
           
         <div class="bg">
            <br>
@@ -53,7 +110,25 @@
                 <div class="col-lg-8 col-md-4 col-sm-6">
                   <h2><%=data["original_title"]%></h2>
                   <br>
-                      <h4><a href="/trailer/<%=data["id"]%>" class="fa fa-youtube">Play Trailer</a></h4>
+                  
+                    <div class="single-chart">
+                      <svg viewbox="0 0 36 36" class="circular-chart orange">
+                        <path class="circle-bg"
+                          d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                        />
+                        <path class="circle"
+                          stroke-dasharray="<%=data["vote_average"]%>,100"
+                          d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                        />
+                        <text x="18" y="20.35" class="percentage">100%</text>
+                      </svg>
+                    </div>
+                    
+                      <h5><a href="/trailer/<%=data["id"]%>" class="fa fa-play"> Play Trailer</a></h5>
                       
                   <br>
                   <h3>overview</h3>
