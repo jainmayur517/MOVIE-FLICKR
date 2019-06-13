@@ -3,6 +3,9 @@
 
 var exp= require('express');
 var app =exp();
+const TorrentSearchApi= require('torrent-search-api');
+TorrentSearchApi.enableProvider('Torrent9');
+
 var serve=require('express-static');
 //app.use(serve(__dirname + '/public'));
 var request=require('request');
@@ -71,7 +74,7 @@ request("https://api.themoviedb.org/3/discover/movie?api_key=4d3d897644294d2ef0d
             var name=req.query.bm
             request("http://api.themoviedb.org/3/movie/upcoming?api_key=4d3d897644294d2ef0d6db5feff11716&region=us",function(error,response,body){
             
-           
+            
             var result=JSON.parse(body);
             //console.log(result)
             res.render("upcoming", {data:result});

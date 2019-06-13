@@ -13,10 +13,13 @@
     "torrent-search-api": "^2.0.6",
     "url": "^0.11.0",
     "webtorrent": "^0.103.1"
+    
+
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC"
