@@ -3,8 +3,7 @@
 
 var exp= require('express');
 var app =exp();
-const TorrentSearchApi= require('torrent-search-api');
-TorrentSearchApi.enableProvider('Torrent9');
+
 
 var serve=require('express-static');
 //app.use(serve(__dirname + '/public'));
