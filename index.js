@@ -3,8 +3,6 @@
 
 var exp= require('express');
 var app =exp();
-
-
 var serve=require('express-static');
 //app.use(serve(__dirname + '/public'));
 var request=require('request');
