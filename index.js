@@ -119,11 +119,23 @@ app.get("/populartv",function(req,res){
         request("https://api.themoviedb.org/3/discover/tv?api_key=4d3d897644294d2ef0d6db5feff11716&sort_by=popularity.desc",function(error,response,body){
             if(!error && response.statusCode==200){
                 var data=JSON.parse(body);
-                res.render("populartv", {data});   
+                res.render("topratedtv", {data});   
         }
         //console.log("hello")
         });
         });   
+
+
+
+        app.get("/networks",function(req,res){
+            request("https://api.themoviedb.org/3/discover/tv?api_key=4d3d897644294d2ef0d6db5feff11716&with_networks=1024",function(error,response,body){
+                if(!error && response.statusCode==200){
+                    var data=JSON.parse(body);
+                    res.render("topratedtv", {data});   
+            }
+            //console.log("hello")
+            });
+            });   
 
         app.get("/trailer/:id",function(req,res){
             var name=req.params.id;
@@ -147,3 +159,7 @@ app.get("/populartv",function(req,res){
 
 
 app.listen(process.env.PORT,process.env.IP);
+
+//app.listen(3000,function(){
+  //  console.log("server started!");
+    //})
