@@ -15,9 +15,12 @@
       .bg{
         background-image: radial-gradient(ellipse at 20% 50%, rgba(19.61%, 10.84%, 50.84%, 0.5) 0%, rgba(19.61%, 7.84%, 50.84%, 0.88) 100%),url(<%="https://image.tmdb.org/t/p/original/"+data["backdrop_path"]%>);
         background-color: #cccccc; /* Used if the image is unavailablle */
-        background-size: 100%;
+        
+     
         background-repeat: no-repeat;
         color: white;
+        height: 82%;
+        background-size: cover;
         font-family: 'Source Sans Pro', sans-serif;
         font-size: 1em;
     -webkit-font-smoothing: antialiased;
@@ -56,6 +59,7 @@
            <br>
            <br>
            <br>
+         
 
           <div class="padding">
               <div class="container">
@@ -64,7 +68,7 @@
                   <div class="col-lg-3 col-md-6 col-sm-6">
                   <img src=<%="https://image.tmdb.org/t/p/w300/"+data["poster_path"]%> align="right">
                 </div>
-                <div class="col-lg-8 col-md-4 col-sm-6">
+                <div class="col-lg-8 col-md-6 col-sm-6">
                   <h2 class="font-weight-bolder"><%=data["original_title"]%></h2>
                   <br>
                   <div class="c100 p<%=data["vote_average"]*10%> small left green">
@@ -102,12 +106,12 @@
                   
                       <div class="container">
                           <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 col-md-6">
                    <b><%=data["credits"].crew[0].name%></b>
                     <br>
                     <%=data["credits"].crew[0].job%>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 col-md-6">
                       <b><%=data["credits"].crew[1].name%></b>
                         <br>
                         <%=data["credits"].crew[1].job%>
@@ -119,7 +123,7 @@
 
                       <div class="container">
                           <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 col-md-6">
                    <b><%=data["credits"].crew[2].name%></b>
                     <br>
                     <%=data["credits"].crew[2].job%>
@@ -130,12 +134,7 @@
                 </div>
                 
               </div>
-           <br>
-           <br>
-           <br>
-           <br>
-           <br>
-           <br>
+           
            <br>
             </div>
             </div>
