@@ -127,8 +127,8 @@ app.get("/populartv",function(req,res){
 
 
 
-        app.get("/networks",function(req,res){
-            request("https://api.themoviedb.org/3/discover/tv?api_key=4d3d897644294d2ef0d6db5feff11716&with_networks=1024",function(error,response,body){
+        app.get("/networks1",function(req,res){
+            request("https://api.themoviedb.org/3/discover/tv?api_key=4d3d897644294d2ef0d6db5feff11716&with_networks=213",function(error,response,body){
                 if(!error && response.statusCode==200){
                     var data=JSON.parse(body);
                     res.render("topratedtv", {data});   
@@ -136,6 +136,36 @@ app.get("/populartv",function(req,res){
             //console.log("hello")
             });
             });   
+
+            app.get("/networks2",function(req,res){
+                request("https://api.themoviedb.org/3/discover/tv?api_key=4d3d897644294d2ef0d6db5feff11716&with_networks=1024",function(error,response,body){
+                    if(!error && response.statusCode==200){
+                        var data=JSON.parse(body);
+                        res.render("topratedtv", {data});   
+                }
+                //console.log("hello")
+                });
+                });   
+
+                app.get("/networks3",function(req,res){
+                    request("https://api.themoviedb.org/3/discover/tv?api_key=4d3d897644294d2ef0d6db5feff11716&with_networks=49",function(error,response,body){
+                        if(!error && response.statusCode==200){
+                            var data=JSON.parse(body);
+                            res.render("topratedtv", {data});   
+                    }
+                    //console.log("hello")
+                    });
+                    });   
+
+                    app.get("/networks4",function(req,res){
+                        request("https://api.themoviedb.org/3/discover/tv?api_key=4d3d897644294d2ef0d6db5feff11716&with_networks=1738",function(error,response,body){
+                            if(!error && response.statusCode==200){
+                                var data=JSON.parse(body);
+                                res.render("topratedtv", {data});   
+                        }
+                        //console.log("hello")
+                        });
+                        });   
 
         app.get("/trailer/:id",function(req,res){
             var name=req.params.id;
