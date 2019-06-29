@@ -1,16 +1,42 @@
 
                               
-
 <html>
-<head>
-  <title> movie_App</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body> 
- 
- <header class="jumbotron">
-<h1 class="text-center font-weight-bolder">results page!</h1>
-  </header> 
+  <head>
+    <title> movie_App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body> 
+    <style type="text/css">
+      .bg{
+        background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url(<%="https:image.tmdb.org/t/p/original/"+data["backdrop_path"]%>);
+        background-color: #cccccc; /* Used if the image is unavailablle */
+        background-size: 100%;
+        
+        
+      }
+      .gh{
+        background-color: black;
+        color: white
+      }
+      a{
+        color: inherit;
+      }
+      </style>
+  
+  
+      
+  
+          <header class="gh">
+              <br>
+          
+              <h1 class="text-center font-weight-bolder"><a href="/">MOvie`fliKR</a></h1>
+              <br>
+                </header>
+                <br>
+  
+  
+                <div class="gh"> 
+                  <br>
   <div class="container">
   <div class="row" style="display:flex; flex-wrap:wrap;">
 <% data["results"].forEach(function(movie){ %> 
@@ -34,7 +60,7 @@
 <button><a href="/toprated/4">4</a></button></h3>
   </div>
 
-
+</div>
 </body>
 </html>
                 

@@ -87,7 +87,7 @@ app.get("/resultstv",function(req,res){
         
         if(!error && response.statusCode==200){
         var result=JSON.parse(body);
-        res.render("searchtv", {data:result});
+        res.render("topratedtv", {data:result});
         }
         });
         });
@@ -187,9 +187,10 @@ app.get("/populartv",function(req,res){
        
 
 
+            
 
 app.listen(process.env.PORT,process.env.IP);
 
 //app.listen(3000,function(){
   //console.log("server started!");
-    //})
+  //})
